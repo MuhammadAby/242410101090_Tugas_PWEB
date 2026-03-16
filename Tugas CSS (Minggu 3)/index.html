@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PeduliKita - Sistem Informasi Pengelolaan Donasi Berbasis Web</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar">
+      <figure class="navbar-brand">
+        <img src="Logo Donasi.png" alt="Logo PeduliKita" height="40" />
+        <span class="navbar-judul">PeduliKita</span>
+      </figure>
+      <div class="navbar-menu">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Program Donasi</a>
+        <a href="#">Donatur</a>
+        <a href="#">Laporan</a>
+      </div>
+    </nav>
+
+    <!-- ===================== HERO SECTION ===================== -->
+    <section class="hero">
+      <header class="hero-konten">
+        <h1>Bersama Kita Bisa Membantu Sesama</h1>
+        <p>
+          Kelola program donasi, data donatur, dan laporan keuangan dari satu
+          tempat.
+        </p>
+        <a href="#" class="hero-btn">Mulai Donasi</a>
+      </header>
+    </section>
+
+    <!-- ===================== FORM PENCARIAN ===================== -->
+    <section class="section-cari">
+      <h2>Cari Program Donasi</h2>
+      <form class="form-cari">
+        <input
+          type="text"
+          placeholder="Cari nama program atau donatur..."
+          class="input-cari"
+        />
+        <select class="select-cari">
+          <option>Semua Kategori</option>
+          <option>Bencana Alam</option>
+          <option>Anak Yatim</option>
+          <option>Pendidikan</option>
+          <option>Masjid</option>
+        </select>
+        <button type="submit" class="btn-cari">Cari</button>
+        <button type="reset" class="btn-reset">Reset</button>
+      </form>
+    </section>
+
+    <!-- ===================== KONTEN UTAMA ===================== -->
+    <section class="wrapper">
+      <!-- SIDEBAR FILTER -->
+      <aside class="sidebar">
+        <h3>Filter Donasi</h3>
+
+        <fieldset class="filter-grup">
+          <legend>Kategori</legend>
+          <label><input type="checkbox" checked /> Bencana Alam</label>
+          <label><input type="checkbox" checked /> Anak Yatim</label>
+          <label><input type="checkbox" /> Pendidikan</label>
+          <label><input type="checkbox" /> Masjid</label>
+          <label><input type="checkbox" /> Kesehatan</label>
+        </fieldset>
+
+        <fieldset class="filter-grup">
+          <legend>Status</legend>
+          <label><input type="checkbox" checked /> Aktif</label>
+          <label><input type="checkbox" /> Selesai</label>
+          <label><input type="checkbox" /> Darurat</label>
+        </fieldset>
+
+        <section class="sidebar-statistik">
+          <h4>Detail Donasi</h4>
+          <table border="1" width="100%">
+            <tr>
+              <td>Total Donasi</td>
+              <td><b>Rp 2.475.000</b></td>
+            </tr>
+            <tr>
+              <td>Jumlah Donatur</td>
+              <td><b>54</b></td>
+            </tr>
+            <tr>
+              <td>Program Aktif</td>
+              <td><b>13</b></td>
+            </tr>
+            <tr>
+              <td>Donasi Hari Ini</td>
+              <td><b>Rp 345.000</b></td>
+            </tr>
+          </table>
+        </section>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="konten">
+        <!-- GRID CARD PROGRAM DONASI -->
+        <section>
+          <h2>Program Donasi Aktif</h2>
+          <div class="card-grid">
+            <article class="card">
+              <figure class="card-gambar"><img src="Donasi Semeru.jpg" alt="Gambar Semeru"></figure>
+              <section class="card-isi">
+                <p class="card-kategori">Bencana Alam</p>
+                <h4>Bantuan Banjir Cianjur</h4>
+                <p>Terkumpul: <b>Rp 41.000.000</b></p>
+                <button class="btn-donasi">Donasi</button>
+              </section>
+            </article>
+
+            <article class="card">
+              <figure class="card-gambar"><img src="Donasi Anak Yatim.jpg" alt="Gambar 2"></figure>
+              <section class="card-isi">
+                <p class="card-kategori">Anak Yatim</p>
+                <h4>Beasiswa Anak Yatim 2026</h4>
+                <p>Terkumpul: <b>Rp 30.000.000</b></p>
+                <button class="btn-donasi">Donasi</button>
+              </section>
+            </article>
+
+            <article class="card">
+              <figure class="card-gambar">📚</figure>
+              <section class="card-isi">
+                <p class="card-kategori">Pendidikan</p>
+                <h4>Buku untuk Pelosok Negeri</h4>
+                <p>Terkumpul: <b>Rp 22.500.000</b></p>
+                <button class="btn-donasi">Donasi</button>
+              </section>
+            </article>
+
+            <article class="card">
+              <figure class="card-gambar"><img src="Donasi Masjid.jpg" alt="masjid"></figure>
+              <section class="card-isi">
+                <p class="card-kategori">Masjid</p>
+                <h4>Renovasi Masjid Al-Ikhlas</h4>
+                <p>Terkumpul: <b>Rp 17.500.000</b></p>
+                <button class="btn-donasi">Donasi</button>
+              </section>
+            </article>
+          </div>
+        </section>
+
+        <!-- TABEL DONATUR -->
+        <section class="section-tabel">
+          <h2>Daftar Donatur Terbaru</h2>
+          <table class="tabel-donatur">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Donatur</th>
+                <th>Program</th>
+                <th>Jumlah</th>
+                <th>Tanggal</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Ahmad Fauzi</td>
+                <td>Bantuan Banjir Cianjur</td>
+                <td>Rp 500.000</td>
+                <td>10 Mar 2026</td>
+                <td><span class="badge sukses">Sukses</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Siti Rahayu</td>
+                <td>Beasiswa Anak Yatim</td>
+                <td>Rp 250.000</td>
+                <td>09 Mar 2026</td>
+                <td><span class="badge sukses">Sukses</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Budi Santoso</td>
+                <td>Buku untuk Pelosok</td>
+                <td>Rp 100.000</td>
+                <td>09 Mar 2026</td>
+                <td><span class="badge pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Dewi Lestari</td>
+                <td>Renovasi Masjid Al-Ikhlas</td>
+                <td>Rp 750.000</td>
+                <td>08 Mar 2026</td>
+                <td><span class="badge sukses">Sukses</span></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Hendra Gunawan</td>
+                <td>Bantuan Banjir Cianjur</td>
+                <td>Rp 200.000</td>
+                <td>08 Mar 2026</td>
+                <td><span class="badge proses">Diproses</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <section class="footer-grid">
+        <address class="footer-kolom">
+          <h3>PeduliKita</h3>
+          <p>Sistem Informasi Pengelolaan Donasi Berbasis Web</p>
+          <p>📍 Jl. Kalimantan No. 10, Sumbersari, Jember 12430</p>
+          <p>📞 (021) 9876-5432</p>
+          <p>✉️ pedulikita@gmail.com</p>
+        </address>
+
+        <nav class="footer-kolom">
+          <h3>Menu</h3>
+          <a href="#">Dashboard</a>
+          <a href="#">Program Donasi</a>
+          <a href="#">Donatur</a>
+          <a href="#">Laporan</a>
+        </nav>
+
+        <nav class="footer-kolom">
+          <h3>Informasi</h3>
+          <a href="#">Cara Berdonasi</a>
+          <a href="#">Transparansi Dana</a>
+          <a href="#">FAQ</a>
+          <a href="#">Kebijakan Privasi</a>
+        </nav>
+      </section>
+      <p class="footer-bawah">&copy; 2026 PeduliKita. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
