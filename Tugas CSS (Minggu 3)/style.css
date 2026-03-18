@@ -1,4 +1,4 @@
-/* tesing */
+/* Utama */
 * {
   margin: 0;
   padding: 0;
@@ -23,9 +23,7 @@ a {
   color: inherit;
 }
 
-/* =============================================
-   (1) NAVBAR - Fixed, Flexbox, Responsif
-   ============================================= */
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
@@ -38,7 +36,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  animation: fadeIn s ease;
+  animation: fadeIn 0.5s ease;
 }
 
 .navbar-brand {
@@ -67,7 +65,6 @@ a {
   border-radius: 4px;
 }
 
-.navbar-menu a:hover,
 .navbar-menu a.active {
   background-color: #d91a47;
   color: white;
@@ -99,9 +96,7 @@ body::before {
   }
 }
 
-/* =============================================
-   (2) HERO SECTION - Gradient + Teks Overlay
-   ============================================= */
+/* HERO SECTION */
 .hero {
   background: linear-gradient(to right, #660f24, #b11433, #ff5f6f);
   padding: 50px 20px;
@@ -128,11 +123,6 @@ body::before {
   border-radius: 4px;
   font-weight: bold;
   font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-.hero-btn:hover {
-  background-color: #a41d3d;
 }
 
 @media (min-width: 600px) {
@@ -141,9 +131,7 @@ body::before {
   }
 }
 
-/* =============================================
-   (4) FORM PENCARIAN - Focus effect, Button
-   ============================================= */
+/* FORM PENCARIAN */
 .section-cari {
   background-color: white;
   padding: 20px;
@@ -192,11 +180,6 @@ body::before {
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn-cari:hover {
-  background-color: #be163d;
 }
 
 .btn-reset {
@@ -207,12 +190,6 @@ body::before {
   border-radius: 4px;
   font-size: 13px;
   cursor: pointer;
-  transition: border-color 0.3s;
-}
-
-.btn-reset:hover {
-  border-color: #ff8f00;
-  color: #e65100;
 }
 
 @media (min-width: 600px) {
@@ -228,9 +205,7 @@ body::before {
   }
 }
 
-/* =============================================
-   WRAPPER - Layout Utama (Sidebar + Main)
-   ============================================= */
+/* WRAPPER */
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -245,9 +220,7 @@ body::before {
   }
 }
 
-/* =============================================
-   (6) SIDEBAR FILTER - Checkbox Styling
-   ============================================= */
+/* SIDEBAR FILTER */
 .sidebar {
   background-color: white;
   border: 1px solid #ddd;
@@ -277,11 +250,12 @@ body::before {
   margin-bottom: 16px;
 }
 
-.filter-grup h4 {
+.filter-grup legend {
   font-size: 12px;
   color: #666;
   text-transform: uppercase;
   margin-bottom: 8px;
+  font-weight: bold;
 }
 
 .filter-grup label {
@@ -292,10 +266,6 @@ body::before {
   padding: 4px 0;
   cursor: pointer;
   color: #333;
-}
-
-.filter-grup label:hover {
-  color: #be163d;
 }
 
 /* Custom checkbox */
@@ -352,9 +322,7 @@ body::before {
   border: 1px solid #000000;
 }
 
-/* =============================================
-   MAIN CONTENT
-   ============================================= */
+/* MAIN CONTENT */
 .konten {
   flex: 1;
   display: flex;
@@ -368,15 +336,7 @@ body::before {
   margin-bottom: 12px;
 }
 
-.card-gambar img {
-  width: 100%;
-  height: 90px;
-  object-fit: cover;
-}
-
-/* =============================================
-   (3) GRID CARD - 1 kolom → 2 → 4, Hover Effect
-   ============================================= */
+/* GRID CARD */
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -400,7 +360,6 @@ body::before {
   border: 1px solid #ddd;
   border-radius: 6px;
   overflow: hidden;
-  animation: muncul 0.5s ease;
   transition:
     transform 0.3s,
     box-shadow 0.3s;
@@ -418,6 +377,13 @@ body::before {
   align-items: center;
   justify-content: center;
   font-size: 40px;
+  margin: 0;
+}
+
+.card-gambar img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
 }
 
 .card-isi {
@@ -454,19 +420,9 @@ body::before {
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
 }
 
-.btn-donasi:hover {
-  background-color: #f02252;
-  color: white;
-}
-
-/* =============================================
-   (5) TABEL DONATUR - Zebra, Border, Padding
-   ============================================= */
+/* TABEL DONATUR */
 .section-tabel {
   overflow-x: auto;
 }
@@ -494,13 +450,12 @@ body::before {
   background-color: white;
 }
 
-.tabel-donatur tbody tr {
-  border-bottom: 1px solid #ddd;
-  transition: background-color 0.2s;
+.tabel-donatur tbody tr:nth-child(even) {
+  background-color: #fff0f3;
 }
 
-.tabel-donatur tbody tr:hover {
-  background-color: #ffe7e7;
+.tabel-donatur tbody tr {
+  border-bottom: 1px solid #ddd;
 }
 
 .tabel-donatur tbody td {
@@ -521,20 +476,16 @@ body::before {
   background-color: #d4edda;
   color: #155724;
 }
-
 .badge.pending {
   background-color: #fff3cd;
   color: #856404;
 }
-
 .badge.proses {
   background-color: #cce5ff;
   color: #004085;
 }
 
-/* =============================================
-   (7) FOOTER - 3 Kolom Responsif
-   ============================================= */
+/* FOOTER */
 .footer {
   background-color: #be163d;
   color: white;
@@ -563,24 +514,11 @@ body::before {
 }
 
 .footer-kolom p,
-.footer-kolom li {
+.footer-kolom a {
   font-size: 12px;
-  color: rgb(255, 255, 255, 0.89);
+  color: rgba(255, 255, 255, 0.89);
   line-height: 2;
-}
-
-.footer-kolom ul {
-  list-style: none;
-}
-
-.footer-kolom ul li a {
-  color: rgb(255, 255, 255, 0.89);
-  font-size: 12px;
-  transition: color 0.2s;
-}
-
-.footer-kolom ul li a:hover {
-  color: #ffffff;
+  display: block;
 }
 
 .footer-bawah {
@@ -589,4 +527,14 @@ body::before {
   color: rgba(255, 255, 255, 0.89);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 12px;
+}
+
+/* ANIMASI */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
