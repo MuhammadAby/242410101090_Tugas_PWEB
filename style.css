@@ -23,7 +23,7 @@ a {
   color: inherit;
 }
 
-/* NAVBAR */
+/* NAVBAR - Fixed, Flexbox, Responsif */
 .navbar {
   position: fixed;
   top: 0;
@@ -96,7 +96,7 @@ body::before {
   }
 }
 
-/* HERO SECTION */
+/* HERO SECTION - Gradient + Teks Overlay */
 .hero {
   background: linear-gradient(to right, #660f24, #b11433, #ff5f6f);
   padding: 50px 20px;
@@ -131,7 +131,7 @@ body::before {
   }
 }
 
-/* FORM PENCARIAN */
+/* FORM PENCARIAN - Focus effect, Button */
 .section-cari {
   background-color: white;
   padding: 20px;
@@ -205,7 +205,7 @@ body::before {
   }
 }
 
-/* WRAPPER */
+/* WRAPPER - Layout Utama (Sidebar + Main) */
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -220,7 +220,7 @@ body::before {
   }
 }
 
-/* SIDEBAR FILTER */
+/* SIDEBAR FILTER - Checkbox Styling */
 .sidebar {
   background-color: white;
   border: 1px solid #ddd;
@@ -336,7 +336,7 @@ body::before {
   margin-bottom: 12px;
 }
 
-/* GRID CARD */
+/* GRID CARD - 1 kolom → 2 → 4, Hover Effect */
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -422,7 +422,7 @@ body::before {
   cursor: pointer;
 }
 
-/* TABEL DONATUR */
+/* TABEL DONATUR - Zebra, Border, Padding\ */
 .section-tabel {
   overflow-x: auto;
 }
@@ -485,7 +485,7 @@ body::before {
   color: #004085;
 }
 
-/* FOOTER */
+/* FOOTER - 3 Kolom Responsif */
 .footer {
   background-color: #be163d;
   color: white;
@@ -537,4 +537,281 @@ body::before {
   to {
     opacity: 1;
   }
+}
+
+/* STATISTIK ATAS */
+.section-statistik {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background-color: white;
+  margin: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+@media (min-width: 600px) {
+  .section-statistik {
+    flex-direction: row;
+  }
+}
+
+.stat-box {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  background-color: #ffedf1;
+  border-radius: 6px;
+  border: 1px solid #ffc9d6;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.stat-angka {
+  font-size: 22px;
+  font-weight: bold;
+  color: #be163d;
+}
+
+/* FORM TAMBAH PROGRAM */
+.section-form {
+  background-color: white;
+  padding: 20px;
+  margin: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.section-form h2 {
+  font-size: 16px;
+  margin-bottom: 14px;
+  color: #be163d;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 600px) {
+  .form-row {
+    flex-direction: row;
+  }
+}
+
+.form-grup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+
+.form-grup label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-grup input,
+.form-grup select {
+  padding: 9px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  outline: none;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.form-grup input:focus,
+.form-grup select:focus {
+  border-color: #e44a6e;
+  box-shadow: 0 0 0 1px #ffceda;
+}
+
+.wajib {
+  color: #be163d;
+}
+
+.pesan-error {
+  color: #be163d;
+  font-size: 11px;
+  min-height: 14px;
+}
+
+.form-tombol {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.btn-simpan {
+  padding: 9px 20px;
+  background-color: #be163d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-batal {
+  padding: 9px 20px;
+  background-color: white;
+  color: #666;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Tombol aksi di tabel */
+.btn-edit {
+  padding: 4px 10px;
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.btn-hapus {
+  padding: 4px 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* FORM TAMBAH PROGRAM */
+.section-form {
+  background-color: white;
+  padding: 20px;
+  margin: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.section-form h2 {
+  font-size: 16px;
+  margin-bottom: 14px;
+  color: #be163d;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 600px) {
+  .form-row {
+    flex-direction: row;
+  }
+}
+
+.form-grup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+
+.form-grup label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-grup input,
+.form-grup select {
+  padding: 9px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  outline: none;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.form-grup input:focus,
+.form-grup select:focus {
+  border-color: #e44a6e;
+  box-shadow: 0 0 0 1px #ffceda;
+}
+
+.wajib {
+  color: #be163d;
+}
+
+.pesan-error {
+  color: #be163d;
+  font-size: 11px;
+  min-height: 14px;
+}
+
+.form-tombol {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.btn-simpan {
+  padding: 9px 20px;
+  background-color: #be163d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-batal {
+  padding: 9px 20px;
+  background-color: white;
+  color: #666;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Tombol aksi di tabel */
+.btn-edit {
+  padding: 4px 10px;
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.btn-hapus {
+  padding: 4px 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
 }

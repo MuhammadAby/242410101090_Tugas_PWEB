@@ -33,24 +33,91 @@
       </header>
     </section>
 
+    <!-- FORM TAMBAH PROGRAM -->
+    <section class="section-form">
+      <h2 id="form-judul">Tambah Program Donasi</h2>
+      <form class="form-program" id="form-program">
+        <div class="form-row">
+          <div class="form-grup">
+            <label for="nama-program"
+              >Nama Program <span class="wajib">*</span></label
+            >
+            <input
+              type="text"
+              id="nama-program"
+              placeholder="Contoh: Bantuan Banjir Cianjur"
+            />
+            <small class="pesan-error" id="error-nama"></small>
+          </div>
+          <div class="form-grup">
+            <label for="kategori-program"
+              >Kategori <span class="wajib">*</span></label
+            >
+            <select id="kategori-program">
+              <option value="">-- Pilih Kategori --</option>
+              <option value="Bencana Alam">Bencana Alam</option>
+              <option value="Anak Yatim">Anak Yatim</option>
+              <option value="Pendidikan">Pendidikan</option>
+              <option value="Masjid">Masjid</option>
+              <option value="Kesehatan">Kesehatan</option>
+            </select>
+            <small class="pesan-error" id="error-kategori"></small>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-grup">
+            <label for="target-dana"
+              >Target Dana (Rp) <span class="wajib">*</span></label
+            >
+            <input
+              type="number"
+              id="target-dana"
+              placeholder="Contoh: 50000000"
+              min="0"
+            />
+            <small class="pesan-error" id="error-target"></small>
+          </div>
+          <div class="form-grup">
+            <label for="tanggal-mulai"
+              >Tanggal Mulai <span class="wajib">*</span></label
+            >
+            <input type="date" id="tanggal-mulai" />
+            <small class="pesan-error" id="error-tanggal"></small>
+          </div>
+        </div>
+
+        <div class="form-tombol">
+          <button type="submit" class="btn-simpan" id="btn-simpan">
+            Simpan Program
+          </button>
+          <button type="button" class="btn-batal" id="btn-batal">Batal</button>
+        </div>
+      </form>
+    </section>
+
     <!-- FORM PENCARIAN -->
     <section class="section-cari">
       <h2>Cari Program Donasi</h2>
-      <form class="form-cari">
+      <form class="form-cari" onsubmit="return false;">
         <input
           type="text"
-          placeholder="Cari nama program atau donatur..."
+          id="input-cari"
+          placeholder="Cari nama atau kode program..."
           class="input-cari"
         />
-        <select class="select-cari">
-          <option>Semua Kategori</option>
-          <option>Bencana Alam</option>
-          <option>Anak Yatim</option>
-          <option>Pendidikan</option>
-          <option>Masjid</option>
+        <select id="filter-kategori" class="select-cari">
+          <option value="">Semua Kategori</option>
+          <option value="Bencana Alam">Bencana Alam</option>
+          <option value="Anak Yatim">Anak Yatim</option>
+          <option value="Pendidikan">Pendidikan</option>
+          <option value="Masjid">Masjid</option>
+          <option value="Kesehatan">Kesehatan</option>
         </select>
-        <button type="submit" class="btn-cari">Cari</button>
-        <button type="reset" class="btn-reset">Reset</button>
+        <button type="button" class="btn-cari" id="btn-cari">Cari</button>
+        <button type="button" class="btn-reset" id="btn-reset-cari">
+          Reset
+        </button>
       </form>
     </section>
 
@@ -80,20 +147,20 @@
           <h4>Detail Donasi</h4>
           <table border="1" width="100%">
             <tr>
-              <td>Total Donasi</td>
-              <td><b>Rp 2.475.000</b></td>
+              <td>Total Program</td>
+              <td><b id="sidebar-total">0</b></td>
             </tr>
             <tr>
-              <td>Jumlah Donatur</td>
-              <td><b>54</b></td>
+              <td>Total Target Dana</td>
+              <td><b id="sidebar-dana">Rp 0</b></td>
             </tr>
             <tr>
               <td>Program Aktif</td>
-              <td><b>13</b></td>
+              <td><b id="sidebar-aktif">0</b></td>
             </tr>
             <tr>
-              <td>Donasi Hari Ini</td>
-              <td><b>Rp 345.000</b></td>
+              <td>Program Mendesak</td>
+              <td><b id="sidebar-mendesak">0</b></td>
             </tr>
           </table>
         </section>
@@ -101,113 +168,31 @@
 
       <!-- MAIN CONTENT -->
       <main class="konten">
-        <!-- GRID CARD PROGRAM DONASI -->
+        <!-- GRID CARD PROGRAM DONASI (di-render JS) -->
         <section>
           <h2>Program Donasi Aktif</h2>
-          <div class="card-grid">
-            <article class="card">
-              <figure class="card-gambar">
-                <img src="Donasi Semeru.jpg" alt="Gambar Semeru" />
-              </figure>
-              <section class="card-isi">
-                <p class="card-kategori">Bencana Alam</p>
-                <h4>Bantuan Erupsi Gunung Semeru</h4>
-                <p>Terkumpul: <b>Rp 11.000.000</b></p>
-                <button class="btn-donasi">Donasi</button>
-              </section>
-            </article>
-
-            <article class="card">
-              <figure class="card-gambar">
-                <img src="Donasi Anak Yatim.jpg" alt="Gambar 2" />
-              </figure>
-              <section class="card-isi">
-                <p class="card-kategori">Anak Yatim</p>
-                <h4>Beasiswa Anak Yatim 2026</h4>
-                <p>Terkumpul: <b>Rp 30.000.000</b></p>
-                <button class="btn-donasi">Donasi</button>
-              </section>
-            </article>
-
-            <article class="card">
-              <figure class="card-gambar">📚</figure>
-              <section class="card-isi">
-                <p class="card-kategori">Pendidikan</p>
-                <h4>Buku untuk Pelosok Negeri</h4>
-                <p>Terkumpul: <b>Rp 22.500.000</b></p>
-                <button class="btn-donasi">Donasi</button>
-              </section>
-            </article>
-
-            <article class="card">
-              <figure class="card-gambar">
-                <img src="Donasi Masjid.jpg" alt="masjid" />
-              </figure>
-              <section class="card-isi">
-                <p class="card-kategori">Masjid</p>
-                <h4>Renovasi Masjid Al-Ikhlas</h4>
-                <p>Terkumpul: <b>Rp 17.500.000</b></p>
-                <button class="btn-donasi">Donasi</button>
-              </section>
-            </article>
+          <div class="card-grid" id="card-grid">
+            <!-- Di-render oleh script.js -->
           </div>
         </section>
 
-        <!-- TABEL DONATUR -->
+        <!-- TABEL PROGRAM (di-render JS) -->
         <section class="section-tabel">
-          <h2>Daftar Donatur Terbaru</h2>
+          <h2>Daftar Program Donasi</h2>
           <table class="tabel-donatur">
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama Donatur</th>
-                <th>Program</th>
-                <th>Jumlah</th>
-                <th>Tanggal</th>
-                <th>Status</th>
+                <th>Nama Program</th>
+                <th>Kategori</th>
+                <th>Target Dana</th>
+                <th>Terkumpul</th>
+                <th>Tanggal Mulai</th>
+                <th>Aksi</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Ahmad Fauzi</td>
-                <td>Bantuan Banjir Cianjur</td>
-                <td>Rp 500.000</td>
-                <td>10 Mar 2026</td>
-                <td><span class="badge sukses">Sukses</span></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Siti Rahayu</td>
-                <td>Beasiswa Anak Yatim</td>
-                <td>Rp 250.000</td>
-                <td>09 Mar 2026</td>
-                <td><span class="badge sukses">Sukses</span></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Budi Santoso</td>
-                <td>Buku untuk Pelosok</td>
-                <td>Rp 100.000</td>
-                <td>09 Mar 2026</td>
-                <td><span class="badge pending">Pending</span></td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Dewi Lestari</td>
-                <td>Renovasi Masjid Al-Ikhlas</td>
-                <td>Rp 750.000</td>
-                <td>08 Mar 2026</td>
-                <td><span class="badge sukses">Sukses</span></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Hendra Gunawan</td>
-                <td>Bantuan Banjir Cianjur</td>
-                <td>Rp 200.000</td>
-                <td>08 Mar 2026</td>
-                <td><span class="badge proses">Diproses</span></td>
-              </tr>
+            <tbody id="tbody-program">
+              <!-- Di-render oleh script.js -->
             </tbody>
           </table>
         </section>
@@ -243,5 +228,7 @@
       </section>
       <p class="footer-bawah">&copy; 2026 PeduliKita. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
