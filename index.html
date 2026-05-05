@@ -1,4 +1,3 @@
-HEAD
 <!doctype html>
 <html lang="id">
   <head>
@@ -26,10 +25,7 @@ HEAD
     <section class="hero">
       <header class="hero-konten">
         <h1>Bersama Kita Bisa Membantu Sesama</h1>
-        <p>
-          Kelola program donasi, data donatur, dan laporan keuangan dari satu
-          tempat.
-        </p>
+        <p>Kelola program donasi, data donatur, dan laporan keuangan dari satu tempat.</p>
         <a href="#" class="hero-btn">Mulai Donasi</a>
       </header>
     </section>
@@ -40,20 +36,12 @@ HEAD
       <form class="form-program" id="form-program">
         <div class="form-row">
           <div class="form-grup">
-            <label for="nama-program"
-              >Nama Program <span class="wajib">*</span></label
-            >
-            <input
-              type="text"
-              id="nama-program"
-              placeholder="Contoh: Bantuan Banjir Cianjur"
-            />
+            <label for="nama-program">Nama Program <span class="wajib">*</span></label>
+            <input type="text" id="nama-program" placeholder="Contoh: Bantuan Banjir Cianjur" />
             <small class="pesan-error" id="error-nama"></small>
           </div>
           <div class="form-grup">
-            <label for="kategori-program"
-              >Kategori <span class="wajib">*</span></label
-            >
+            <label for="kategori-program">Kategori <span class="wajib">*</span></label>
             <select id="kategori-program">
               <option value="">-- Pilih Kategori --</option>
               <option value="Bencana Alam">Bencana Alam</option>
@@ -68,30 +56,19 @@ HEAD
 
         <div class="form-row">
           <div class="form-grup">
-            <label for="target-dana"
-              >Target Dana (Rp) <span class="wajib">*</span></label
-            >
-            <input
-              type="number"
-              id="target-dana"
-              placeholder="Contoh: 50000000"
-              min="0"
-            />
+            <label for="target-dana">Target Dana (Rp) <span class="wajib">*</span></label>
+            <input type="number" id="target-dana" placeholder="Contoh: 50000000" min="0" />
             <small class="pesan-error" id="error-target"></small>
           </div>
           <div class="form-grup">
-            <label for="tanggal-mulai"
-              >Tanggal Mulai <span class="wajib">*</span></label
-            >
+            <label for="tanggal-mulai">Tanggal Mulai <span class="wajib">*</span></label>
             <input type="date" id="tanggal-mulai" />
             <small class="pesan-error" id="error-tanggal"></small>
           </div>
         </div>
 
         <div class="form-tombol">
-          <button type="submit" class="btn-simpan" id="btn-simpan">
-            Simpan Program
-          </button>
+          <button type="submit" class="btn-simpan" id="btn-simpan">Simpan Program</button>
           <button type="button" class="btn-batal" id="btn-batal">Batal</button>
         </div>
       </form>
@@ -101,12 +78,7 @@ HEAD
     <section class="section-cari">
       <h2>Cari Program Donasi</h2>
       <form class="form-cari" onsubmit="return false;">
-        <input
-          type="text"
-          id="input-cari"
-          placeholder="Cari nama atau kode program..."
-          class="input-cari"
-        />
+        <input type="text" id="input-cari" placeholder="Cari nama atau kode program..." class="input-cari" />
         <select id="filter-kategori" class="select-cari">
           <option value="">Semua Kategori</option>
           <option value="Bencana Alam">Bencana Alam</option>
@@ -116,9 +88,7 @@ HEAD
           <option value="Kesehatan">Kesehatan</option>
         </select>
         <button type="button" class="btn-cari" id="btn-cari">Cari</button>
-        <button type="button" class="btn-reset" id="btn-reset-cari">
-          Reset
-        </button>
+        <button type="button" class="btn-reset" id="btn-reset-cari">Reset</button>
       </form>
     </section>
 
@@ -169,7 +139,7 @@ HEAD
 
       <!-- MAIN CONTENT -->
       <main class="konten">
-        <!-- GRID CARD PROGRAM DONASI (di-render JS) -->
+        <!-- GRID CARD -->
         <section>
           <h2>Program Donasi Aktif</h2>
           <div class="card-grid" id="card-grid">
@@ -177,7 +147,7 @@ HEAD
           </div>
         </section>
 
-        <!-- TABEL PROGRAM (di-render JS) -->
+        <!-- TABEL -->
         <section class="section-tabel">
           <h2>Daftar Program Donasi</h2>
           <table class="tabel-donatur">
@@ -210,7 +180,6 @@ HEAD
           <p>📞 (021) 9876-5432</p>
           <p>✉️ pedulikita@gmail.com</p>
         </address>
-
         <nav class="footer-kolom">
           <h3>Menu</h3>
           <a href="#">Dashboard</a>
@@ -218,242 +187,6 @@ HEAD
           <a href="#">Donatur</a>
           <a href="#">Laporan</a>
         </nav>
-
-        <nav class="footer-kolom">
-          <h3>Informasi</h3>
-          <a href="#">Cara Berdonasi</a>
-          <a href="#">Transparansi Dana</a>
-          <a href="#">FAQ</a>
-          <a href="#">Kebijakan Privasi</a>
-        </nav>
-      </section>
-      <p class="footer-bawah">&copy; 2026 PeduliKita. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
-  </body>
-</html>
-
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PeduliKita - Sistem Informasi Pengelolaan Donasi Berbasis Web</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-      <figure class="navbar-brand">
-        <img src="Logo Donasi.png" alt="Logo PeduliKita" height="40" />
-        <span class="navbar-judul">PeduliKita</span>
-      </figure>
-      <div class="navbar-menu">
-        <a href="#" class="active">Dashboard</a>
-        <a href="#">Program Donasi</a>
-        <a href="#">Donatur</a>
-        <a href="#">Laporan</a>
-      </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-      <header class="hero-konten">
-        <h1>Bersama Kita Bisa Membantu Sesama</h1>
-        <p>
-          Kelola program donasi, data donatur, dan laporan keuangan dari satu
-          tempat.
-        </p>
-        <a href="#" class="hero-btn">Mulai Donasi</a>
-      </header>
-    </section>
-
-    <!-- FORM TAMBAH PROGRAM -->
-    <section class="section-form">
-      <h2 id="form-judul">Tambah Program Donasi</h2>
-      <form class="form-program" id="form-program">
-        <div class="form-row">
-          <div class="form-grup">
-            <label for="nama-program"
-              >Nama Program <span class="wajib">*</span></label
-            >
-            <input
-              type="text"
-              id="nama-program"
-              placeholder="Contoh: Bantuan Banjir Cianjur"
-            />
-            <small class="pesan-error" id="error-nama"></small>
-          </div>
-          <div class="form-grup">
-            <label for="kategori-program"
-              >Kategori <span class="wajib">*</span></label
-            >
-            <select id="kategori-program">
-              <option value="">-- Pilih Kategori --</option>
-              <option value="Bencana Alam">Bencana Alam</option>
-              <option value="Anak Yatim">Anak Yatim</option>
-              <option value="Pendidikan">Pendidikan</option>
-              <option value="Masjid">Masjid</option>
-              <option value="Kesehatan">Kesehatan</option>
-            </select>
-            <small class="pesan-error" id="error-kategori"></small>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-grup">
-            <label for="target-dana"
-              >Target Dana (Rp) <span class="wajib">*</span></label
-            >
-            <input
-              type="number"
-              id="target-dana"
-              placeholder="Contoh: 50000000"
-              min="0"
-            />
-            <small class="pesan-error" id="error-target"></small>
-          </div>
-          <div class="form-grup">
-            <label for="tanggal-mulai"
-              >Tanggal Mulai <span class="wajib">*</span></label
-            >
-            <input type="date" id="tanggal-mulai" />
-            <small class="pesan-error" id="error-tanggal"></small>
-          </div>
-        </div>
-
-        <div class="form-tombol">
-          <button type="submit" class="btn-simpan" id="btn-simpan">
-            Simpan Program
-          </button>
-          <button type="button" class="btn-batal" id="btn-batal">Batal</button>
-        </div>
-      </form>
-    </section>
-
-    <!-- FORM PENCARIAN -->
-    <section class="section-cari">
-      <h2>Cari Program Donasi</h2>
-      <form class="form-cari" onsubmit="return false;">
-        <input
-          type="text"
-          id="input-cari"
-          placeholder="Cari nama atau kode program..."
-          class="input-cari"
-        />
-        <select id="filter-kategori" class="select-cari">
-          <option value="">Semua Kategori</option>
-          <option value="Bencana Alam">Bencana Alam</option>
-          <option value="Anak Yatim">Anak Yatim</option>
-          <option value="Pendidikan">Pendidikan</option>
-          <option value="Masjid">Masjid</option>
-          <option value="Kesehatan">Kesehatan</option>
-        </select>
-        <button type="button" class="btn-cari" id="btn-cari">Cari</button>
-        <button type="button" class="btn-reset" id="btn-reset-cari">
-          Reset
-        </button>
-      </form>
-    </section>
-
-    <!-- KONTEN UTAMA -->
-    <section class="wrapper">
-      <!-- SIDEBAR FILTER -->
-      <aside class="sidebar">
-        <h3>Filter Donasi</h3>
-
-        <fieldset class="filter-grup">
-          <legend>Kategori</legend>
-          <label><input type="checkbox" checked /> Bencana Alam</label>
-          <label><input type="checkbox" checked /> Anak Yatim</label>
-          <label><input type="checkbox" /> Pendidikan</label>
-          <label><input type="checkbox" /> Masjid</label>
-          <label><input type="checkbox" /> Kesehatan</label>
-        </fieldset>
-
-        <fieldset class="filter-grup">
-          <legend>Status</legend>
-          <label><input type="checkbox" checked /> Aktif</label>
-          <label><input type="checkbox" /> Selesai</label>
-          <label><input type="checkbox" /> Darurat</label>
-        </fieldset>
-
-        <section class="sidebar-statistik">
-          <h4>Detail Donasi</h4>
-          <table border="1" width="100%">
-            <tr>
-              <td>Total Program</td>
-              <td><b id="sidebar-total">0</b></td>
-            </tr>
-            <tr>
-              <td>Total Target Dana</td>
-              <td><b id="sidebar-dana">Rp 0</b></td>
-            </tr>
-            <tr>
-              <td>Program Aktif</td>
-              <td><b id="sidebar-aktif">0</b></td>
-            </tr>
-            <tr>
-              <td>Program Mendesak</td>
-              <td><b id="sidebar-mendesak">0</b></td>
-            </tr>
-          </table>
-        </section>
-      </aside>
-
-      <!-- MAIN CONTENT -->
-      <main class="konten">
-        <!-- GRID CARD PROGRAM DONASI (di-render JS) -->
-        <section>
-          <h2>Program Donasi Aktif</h2>
-          <div class="card-grid" id="card-grid">
-            <!-- Di-render oleh script.js -->
-          </div>
-        </section>
-
-        <!-- TABEL PROGRAM (di-render JS) -->
-        <section class="section-tabel">
-          <h2>Daftar Program Donasi</h2>
-          <table class="tabel-donatur">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama Program</th>
-                <th>Kategori</th>
-                <th>Target Dana</th>
-                <th>Terkumpul</th>
-                <th>Tanggal Mulai</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-            <tbody id="tbody-program">
-              <!-- Di-render oleh script.js -->
-            </tbody>
-          </table>
-        </section>
-      </main>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <section class="footer-grid">
-        <address class="footer-kolom">
-          <h3>PeduliKita</h3>
-          <p>Sistem Informasi Pengelolaan Donasi Berbasis Web</p>
-          <p>📍 Jl. Kalimantan No. 10, Sumbersari, Jember 12430</p>
-          <p>📞 (021) 9876-5432</p>
-          <p>✉️ pedulikita@gmail.com</p>
-        </address>
-
-        <nav class="footer-kolom">
-          <h3>Menu</h3>
-          <a href="#">Dashboard</a>
-          <a href="#">Program Donasi</a>
-          <a href="#">Donatur</a>
-          <a href="#">Laporan</a>
-        </nav>
-
         <nav class="footer-kolom">
           <h3>Informasi</h3>
           <a href="#">Cara Berdonasi</a>
