@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Data awal & localStorage
 const STORAGE_KEY = "pedulikita_program";
 
@@ -305,7 +304,7 @@ document.getElementById("btn-reset-cari").addEventListener("click", () => {
 
 // Jalankan saat halaman dibuka
 renderSemua();
-=======
+
 // Data awal & localStorage
 const STORAGE_KEY = "pedulikita_program";
 
@@ -612,4 +611,3 @@ document.getElementById("btn-reset-cari").addEventListener("click", () => {
 
 // Jalankan saat halaman dibuka
 renderSemua();
->>>>>>> 875b42bff489b91e43bd5c0aa0275328d52fee66
