@@ -11,3 +11,8 @@ class DashboardController extends Controller
         return view('dashboard');
     }
 }
+
+return redirect()->route('dashboard')
+    ->with('success', 'Program berhasil ditambahkan!');
+
+
