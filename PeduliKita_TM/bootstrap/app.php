@@ -10,6 +10,11 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+    ->withMiddleware(function ($middleware) {
+        $middleware->alias([
+            'cekadmin' => \App\Http\Middleware\CekAdmin::class,
+        ]);
+    })
     ->withMiddleware(function (Middleware $middleware): void {
         //
     })

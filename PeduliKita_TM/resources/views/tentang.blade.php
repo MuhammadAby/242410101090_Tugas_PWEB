@@ -2,26 +2,31 @@
 
 @section('content')
 
-<section style="padding: 20px;">
+<section class="page-header">
     <h1>Tentang PeduliKita</h1>
-
-    <p style="margin-top:10px;">
-        PeduliKita adalah sistem informasi pengelolaan donasi berbasis web
-        yang bertujuan untuk memudahkan pengelolaan program donasi,
-        data donatur, serta laporan keuangan secara transparan.
+    <p>
+        Platform donasi online untuk membantu
+        masyarakat yang membutuhkan.
     </p>
-
-    <p style="margin-top:10px;">
-        Dengan adanya platform ini, diharapkan masyarakat dapat lebih mudah
-        dalam berdonasi dan memantau perkembangan donasi secara real-time.
-    </p>
-
 </section>
 
-@push('scripts')
-<script>
-    console.log("Halaman Tentang aktif");
-</script>
-@endpush
+<section class="content-box">
+
+    <h2>Visi</h2>
+
+    <p>
+        Menjadi platform donasi terpercaya
+        dan transparan di Indonesia.
+    </p>
+
+    <h2>Misi</h2>
+
+    <ul>
+        <li>Membantu masyarakat dengan cepat</li>
+        <li>Menghubungkan donatur dan penerima</li>
+        <li>Menyediakan laporan transparan</li>
+    </ul>
+
+</section>
 
 @endsection

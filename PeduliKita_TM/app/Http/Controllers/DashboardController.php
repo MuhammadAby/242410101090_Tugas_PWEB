@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProgramDonasi;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+        $programs = ProgramDonasi::latest()->get();
+
+        return view('dashboard', compact('programs'));
     }
 }
 

@@ -25,5 +25,12 @@ class ProgramDonasi extends Model
     {
     return $query->whereColumn('terkumpul', '<', 'target');
     }
+
+    public function donaturs()
+    {
+    return $this->belongsToMany(Donatur::class, 'donasis')
+                ->withPivot('jumlah')
+                ->withTimestamps();
+    }
 }
 
