@@ -9,12 +9,27 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
 
+Route::get('/preferensi', function () {
+    return view('preferensi');
+});
+
+Route::post('/preferensi', [PreferensiController::class, 'simpan']);
+
+Route::get('/search-program', [ProgramDonasiController::class, 'search']);
+
 Route::view('/tentang', 'tentang')
     ->name('tentang');
 
 Route::view('/kontak', 'kontak')
     ->name('kontak');
 
+Route::post('/reset-kunjungan', function () {
+
+    session()->forget(['kunjungan', 'pertama', 'terakhir']);
+
+    return redirect()->back();
+
+})->name('reset.kunjungan');
 
 Route::middleware('auth')->group(function () {
 

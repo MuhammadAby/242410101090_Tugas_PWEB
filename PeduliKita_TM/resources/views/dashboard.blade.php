@@ -28,6 +28,37 @@
     </div>
 </section>
 
+<section class="section-cuaca">
+    <h2>Cuaca Surabaya</h2>
+
+    <div id="cuaca-box">
+        <p id="cuaca-loading">Loading cuaca...</p>
+
+        <div id="cuaca-data" style="display:none;">
+            <p><strong>Kota:</strong> Surabaya</p>
+            <p><strong>Suhu:</strong> <span id="suhu"></span> °C</p>
+            <p><strong>Cuaca:</strong> <span id="deskripsi"></span></p>
+        </div>
+    </div>
+</section>
+
+<section style="margin:20px; padding:15px; border:1px solid #ccc;">
+
+    <h2>Statistik Kunjungan</h2>
+
+    <p>Total kunjungan: <strong>{{ $kunjungan }}</strong></p>
+
+    <p>Pertama kali: {{ $pertama }}</p>
+
+    <p>Terakhir kunjungan: {{ $terakhir }}</p>
+
+    <form action="{{ route('reset.kunjungan') }}" method="POST">
+        @csrf
+        <button type="submit">Reset Hitungan</button>
+    </form>
+
+</section>
+
 <!-- STATISTIK -->
 <section class="section-statistik">
 
@@ -178,6 +209,36 @@
 
 </script>
 
+@endpush
+
+@push('scripts')
+<script>
+async function ambilCuaca() {
+
+    const loading = document.getElementById('cuaca-loading');
+    const dataBox = document.getElementById('cuaca-data');
+
+    try {
+        const response = await fetch('https://wttr.in/Surabaya?format=j1');
+        const data = await response.json();
+
+        const suhu = data.current_condition[0].temp_C;
+        const deskripsi = data.current_condition[0].weatherDesc[0].value;
+
+        document.getElementById('suhu').innerText = suhu;
+        document.getElementById('deskripsi').innerText = deskripsi;
+
+        loading.style.display = 'none';
+        dataBox.style.display = 'block';
+
+    } catch (error) {
+        loading.innerText = "Gagal ambil data cuaca";
+        console.error(error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", ambilCuaca);
+</script>
 @endpush
 
 @endsection

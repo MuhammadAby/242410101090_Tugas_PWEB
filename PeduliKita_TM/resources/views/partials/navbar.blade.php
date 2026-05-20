@@ -13,6 +13,9 @@
     </div>
 
     <div class="navbar-menu">
+        <button id="toggleDark">
+            🌙 Dark Mode
+        </button>
 
         <a href="{{ route('dashboard') }}">
             Dashboard

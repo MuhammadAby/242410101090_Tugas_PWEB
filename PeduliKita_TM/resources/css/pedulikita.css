@@ -222,6 +222,15 @@ body {
 }
 
 /* NAVBAR */
+body.dark {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark .navbar {
+    background-color: #1f1f1f;
+}
+
 .navbar {
     position: fixed;
     top: 0;

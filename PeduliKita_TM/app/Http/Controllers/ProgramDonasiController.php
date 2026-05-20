@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ProgramDonasi;
+use App\Http\Controllers\Controller;
 
 class ProgramDonasiController extends Controller
 {
@@ -87,6 +88,17 @@ class ProgramDonasiController extends Controller
         return redirect()
                 ->route('program-donasi.index')
                 ->with('success', 'Program donasi berhasil dihapus');
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->keyword;
+
+        $programs = ProgramDonasi::where('nama', 'like', "%$keyword%")
+            ->orWhere('kategori', 'like', "%$keyword%")
+            ->get();
+
+        return view('program-donasi.search', compact('programs'));
     }
 }
 
