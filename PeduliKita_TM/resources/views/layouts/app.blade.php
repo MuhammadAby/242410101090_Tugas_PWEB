@@ -43,10 +43,8 @@
     {{-- NAVBAR --}}
     @include('partials.navbar')
 
-    @push('scripts')
     <script>
 
-    // SET COOKIE
     function setCookie(name, value, days) {
         let expires = "";
         if (days) {
@@ -57,43 +55,49 @@
         document.cookie = name + "=" + value + expires + "; path=/";
     }
 
-    // GET COOKIE
     function getCookie(name) {
         let nameEQ = name + "=";
         let ca = document.cookie.split(';');
+
         for(let i=0;i < ca.length;i++) {
             let c = ca[i].trim();
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
+
+            if (c.indexOf(nameEQ) === 0) {
+                return c.substring(nameEQ.length);
+            }
         }
+
         return null;
     }
 
-    // TOGGLE DARK MODE
     document.addEventListener("DOMContentLoaded", function () {
 
         const btn = document.getElementById('toggleDark');
 
-        // load dari cookie
         if (getCookie('theme') === 'dark') {
             document.body.classList.add('dark');
         }
 
-        btn.addEventListener('click', function () {
+        // PERBAIKAN DI SINI
+        if (btn) {
 
-            document.body.classList.toggle('dark');
+            btn.addEventListener('click', function () {
 
-            if (document.body.classList.contains('dark')) {
-                setCookie('theme', 'dark', 7);
-            } else {
-                setCookie('theme', 'light', 7);
-            }
+                document.body.classList.toggle('dark');
 
-        });
+                if (document.body.classList.contains('dark')) {
+                    setCookie('theme', 'dark', 7);
+                } else {
+                    setCookie('theme', 'light', 7);
+                }
+
+            });
+
+        }
 
     });
 
-    </script>
-    @endpush
+</script>
 
     {{-- FLASH MESSAGE --}}
     @if(session('success'))
