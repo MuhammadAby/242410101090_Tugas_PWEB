@@ -2,26 +2,42 @@
 
 @section('content')
 
-<h1>Detail Program Donasi</h1>
+<section style="padding:80px 10%;">
 
-<p>
-    <strong>Nama:</strong>
-    {{ $programDonasi->nama }}
-</p>
+    <h1>{{ $program->nama }}</h1>
 
-<p>
-    <strong>Kategori:</strong>
-    {{ $programDonasi->kategori }}
-</p>
+    <p>
+        Kategori:
+        {{ $program->kategori }}
+    </p>
 
-<p>
-    <strong>Target:</strong>
-    Rp {{ number_format($programDonasi->target) }}
-</p>
+    <p>
+        {{ $program->deskripsi }}
+    </p>
 
-<p>
-    <strong>Terkumpul:</strong>
-    Rp {{ number_format($programDonasi->terkumpul) }}
-</p>
+    <p>
+        Target:
+        Rp {{ number_format($program->target,0,',','.') }}
+    </p>
+
+    <p>
+        Terkumpul:
+        Rp {{ number_format($program->terkumpul,0,',','.') }}
+    </p>
+
+    <a
+        href="{{ route('donasi.create', $program->id) }}"
+        style="
+            background:#be163d;
+            color:white;
+            padding:15px 25px;
+            text-decoration:none;
+            border-radius:12px;
+        "
+    >
+        Donasi Sekarang
+    </a>
+
+</section>
 
 @endsection

@@ -2,85 +2,182 @@
 
 @section('content')
 
-<h1>Tambah Program Donasi</h1>
+<div class="payment-container">
 
-<form action="{{ route('program-donasi.store') }}"
-      method="POST"
-      enctype="multipart/form-data">
+    <div class="payment-card">
 
-    @csrf
+        <h1>
 
-    <div>
-        <label>Nama Program</label>
+            Pembayaran Donasi
 
-        <input type="text"
-               name="nama"
-               value="{{ old('nama') }}">
+        </h1>
 
-        @error('nama')
-            <small>{{ $message }}</small>
-        @enderror
+        <p>
+
+            {{ $program->nama }}
+
+        </p>
+
+        <form method="POST"
+              action="{{ route('donasi.store',$program->id) }}">
+
+            @csrf
+
+            <div class="form-group">
+
+                <label>
+
+                    Nominal Donasi
+
+                </label>
+
+                <input type="number"
+                       name="nominal"
+                       min="10000"
+                       required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    Metode Pembayaran
+
+                </label>
+
+                <select name="metode_pembayaran"
+                        required>
+
+                    <option value="Transfer Bank">
+
+                        Transfer Bank
+
+                    </option>
+
+                    <option value="E-Wallet">
+
+                        E-Wallet
+
+                    </option>
+
+                    <option value="QRIS">
+
+                        QRIS
+
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    Pesan / Doa
+
+                </label>
+
+                <textarea name="pesan">
+
+                </textarea>
+
+            </div>
+
+            <button type="submit"
+                    class="btn-bayar">
+
+                Donasi Sekarang
+
+            </button>
+
+        </form>
+
     </div>
 
-    <div>
-        <label>Kategori</label>
+</div>
 
-        <select name="kategori">
+<style>
+    .payment-container{
 
-            <option value="">-- Pilih Kategori --</option>
+    display:flex;
 
-            <option>Bencana Alam</option>
-            <option>Anak Yatim</option>
-            <option>Pendidikan</option>
-            <option>Masjid</option>
-            <option>Kesehatan</option>
+    justify-content:center;
 
-        </select>
+    padding:60px 20px;
+}
 
-        @error('kategori')
-            <small>{{ $message }}</small>
-        @enderror
+.payment-card{
 
-    </div>
+    width:100%;
 
-    <div>
-        <label>Target Dana</label>
+    max-width:600px;
 
-        <input type="number"
-               name="target"
-               value="{{ old('target') }}">
+    background:white;
 
-        @error('target')
-            <small>{{ $message }}</small>
-        @enderror
-    </div>
+    border-radius:30px;
 
-    <div>
-        <label>Tanggal Mulai</label>
+    padding:40px;
 
-        <input type="date"
-               name="tanggal_mulai"
-               value="{{ old('tanggal_mulai') }}">
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08);
+}
 
-        @error('tanggal_mulai')
-            <small>{{ $message }}</small>
-        @enderror
-    </div>
+.payment-card h1{
 
-    <div>
-        <label>Foto Program</label>
+    margin-bottom:10px;
 
-        <input type="file" name="gambar">
+    color:#be163d;
+}
 
-        @error('gambar')
-            <small>{{ $message }}</small>
-        @enderror
-    </div>
+.form-group{
 
-    <button type="submit">
-        Simpan
-    </button>
+    margin-bottom:25px;
+}
 
-</form>
+.form-group label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    border:1px solid #ddd;
+}
+
+.btn-bayar{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#be163d;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+}
+</style>
 
 @endsection

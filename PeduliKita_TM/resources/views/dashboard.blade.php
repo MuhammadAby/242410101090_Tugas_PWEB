@@ -2,44 +2,28 @@
 
 @section('content')
 
-@php
-    $statistik = [
-        ['judul' => 'Total Program', 'nilai' => 4, 'ikon' => '📊', 'warna' => '#be163d'],
-        ['judul' => 'Total Target Dana', 'nilai' => 'Rp 155.000.000', 'ikon' => '💰', 'warna' => '#28a745'],
-        ['judul' => 'Program Aktif', 'nilai' => 4, 'ikon' => '🔥', 'warna' => '#ffc107'],
-    ];
-@endphp
-
 <!-- HERO -->
-<section class="hero-modern">
+<section id="hero" class="hero-modern">
 
     <div class="hero-text">
 
-        <span class="badge">
-            ❤️ PeduliKita
-        </span>
-
-        <h1>
-            Bersama Kita Bisa
-            <span>Membantu Sesama</span>
-        </h1>
-
-        <p>
-            Temukan berbagai program donasi terpercaya
-            dan berikan dampak nyata bagi mereka yang membutuhkan.
+        <p class="hero-kicker">
+            Transparansi Nyata,<br>
+            Dampak Bersama.
         </p>
 
-        <div class="hero-actions">
+        <p class="hero-desc">
 
-            <a href="{{ route('program-donasi.index') }}"
-               class="btn-primary">
+            Bergabunglah dalam inisiatif filantropi modern yang menjamin
+            setiap donasi Anda tercatat, transparan, dan tepat sasaran.
+            Membangun masa depan yang lebih baik, satu langkah terukur
+            pada satu waktu.
 
-                Lihat Program
+        </p>
 
-            </a>
+        <div id="program" class="hero-actions">
 
-            <a href="#program"
-               class="btn-secondary">
+            <a id="program" class="btn-donasi">
 
                 Donasi Sekarang
 
@@ -51,84 +35,10 @@
 
     <div class="hero-image">
 
-        <img src="https://cdn-icons-png.flaticon.com/512/4256/4256900.png"
-             alt="Donasi">
+        <div class="hero-image-wrapper">
 
-    </div>
-
-</section>
-
-<section class="info-grid">
-
-    <div class="info-card">
-
-        <div class="info-icon">
-            🌤️
-        </div>
-
-        <div>
-
-            <h3>Cuaca Surabaya</h3>
-
-            <p id="cuaca-loading">
-                Memuat data cuaca...
-            </p>
-
-            <div id="cuaca-data" style="display:none;">
-
-                <p>
-                    <strong>Suhu:</strong>
-                    <span id="suhu"></span> °C
-                </p>
-
-                <p>
-                    <strong>Kondisi:</strong>
-                    <span id="deskripsi"></span>
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="info-card">
-
-        <div class="info-icon">
-            👥
-        </div>
-
-        <div>
-
-            <h3>Statistik Kunjungan</h3>
-
-            <p>
-                Total:
-                <strong>{{ $kunjungan }}</strong>
-            </p>
-
-            <p>
-                Pertama:
-                {{ $pertama }}
-            </p>
-
-            <p>
-                Terakhir:
-                {{ $terakhir }}
-            </p>
-
-            <form action="{{ route('reset.kunjungan') }}"
-                method="POST">
-
-                @csrf
-
-                <button class="reset-btn">
-
-                    Reset Hitungan
-
-                </button>
-
-            </form>
+            <img src="{{ asset('images/Foto Dashboard.jpg') }}"
+                 alt="PeduliKita">
 
         </div>
 
@@ -136,84 +46,99 @@
 
 </section>
 
-<!-- STATISTIK -->
-<section class="stats-modern">
+<!-- TENTANG -->
+<section id="tentang" class="tentang-section">
 
-    @forelse($statistik as $item)
+    <div class="tentang-content">
 
-        <x-stat-card
-            :judul="$item['judul']"
-            :nilai="$item['nilai']"
-            :ikon="$item['ikon']"
-            :warna="$item['warna']"
-        />
+        <span class="section-label">Tentang Kami</span>
 
-    @empty
-
-        <p style="margin:20px;">
-            Data tidak tersedia
-        </p>
-
-    @endforelse
-
-</section>
-
-<!-- PENCARIAN -->
-<section class="section-cari">
-
-    <h2>Cari Program Donasi</h2>
-
-    <form class="form-cari">
-
-        <input
-            type="text"
-            id="input-cari"
-            class="input-cari"
-            placeholder="Cari program donasi..."
-        >
-
-        <select
-            id="filter-kategori"
-            class="select-cari"
-        >
-            <option value="">Semua Kategori</option>
-            <option>Bencana Alam</option>
-            <option>Anak Yatim</option>
-            <option>Pendidikan</option>
-            <option>Masjid</option>
-            <option>Kesehatan</option>
-        </select>
-
-        <button
-            type="button"
-            class="btn-cari"
-            id="btn-cari"
-        >
-            Cari
-        </button>
-
-        <button
-            type="button"
-            class="btn-reset"
-            id="btn-reset-cari"
-        >
-            Reset
-        </button>
-
-    </form>
-
-</section>
-
-<!-- WRAPPER -->
-<section id="program" class="program-section">
-
-    <div class="section-title">
-
-        <h2>Program Donasi Aktif</h2>
+        <h2>
+            Komitmen pada Transparansi Mutlak
+        </h2>
 
         <p>
-            Pilih program yang ingin Anda dukung hari ini.
+
+            PeduliKita lahir dari kebutuhan akan kepercayaan dalam berdonasi.
+            Kami percaya bahwa setiap pemberi dana berhak mengetahui ke mana
+            dan bagaimana dana mereka digunakan. Melalui teknologi
+            pencatatan presisi tinggi dan pelaporan real-time, kami
+            menjembatani niat baik Anda dengan dampak nyata yang terukur.
+
         </p>
+
+    </div>
+
+    <div class="tentang-grid">
+
+        <div class="tentang-card">
+
+            <div class="tentang-icon">👁️</div>
+
+            <h3>100% Transparan</h3>
+
+            <p>
+                Setiap transaksi dicatat dan dapat diakses publik melalui
+                portal laporan interaktif kami.
+            </p>
+
+        </div>
+
+        <div class="tentang-card">
+
+            <div class="tentang-icon">🎯</div>
+
+            <h3>Tepat Sasaran</h3>
+
+            <p>
+                Validasi ketat memastikan bantuan disalurkan kepada mereka
+                yang paling membutuhkan secara efisien.
+            </p>
+
+        </div>
+
+        <div class="tentang-card">
+
+            <div class="tentang-icon">🛡️</div>
+
+            <h3>Keamanan Dana</h3>
+
+            <p>
+                Sistem keamanan tingkat tinggi melindungi setiap donasi
+                Anda dari awal hingga disalurkan.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROGRAM -->
+<section id="program" class="program-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">Program Aktif</span>
+
+            <h2>
+                Pilih Dampak Anda
+            </h2>
+
+            <p>
+                Pilih program yang ingin Anda dukung hari ini.
+            </p>
+
+        </div>
+
+        <a href="{{ route('program-donasi.index') }}"
+           class="lihat-semua">
+
+            Lihat Semua →
+
+        </a>
 
     </div>
 
@@ -227,33 +152,41 @@
                     : 0;
             @endphp
 
-            <div class="program-card">
+            <div class="program-card"
 
-                @if($program->gambar)
+                data-id="{{ $program->id }}"
+                data-nama="{{ $program->nama }}"
+                data-kategori="{{ $program->kategori }}"
+                data-deskripsi="{{ $program->deskripsi }}"
+                data-target="{{ number_format($program->target,0,',','.') }}"
+                data-terkumpul="{{ number_format($program->terkumpul,0,',','.') }}"
+                data-gambar="{{ $program->gambar
+                    ? asset('storage/'.$program->gambar)
+                    : 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800'
+                }}"
+
+            >
+
+                <div class="program-image-wrap">
 
                     <img
-                        src="{{ asset('storage/' . $program->gambar) }}"
+                        src="{{ $program->gambar
+                            ? asset('storage/'.$program->gambar)
+                            : 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800'
+                        }}"
                         alt="{{ $program->nama }}"
                         class="program-image"
                     >
 
-                @else
-
-                    <img
-                        src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800"
-                        alt="Donasi"
-                        class="program-image"
-                    >
-
-                @endif
-
-                <div class="program-content">
-
-                    <span class="kategori">
+                    <span class="kategori-badge">
 
                         {{ $program->kategori }}
 
                     </span>
+
+                </div>
+
+                <div class="program-content">
 
                     <h3>
 
@@ -261,11 +194,17 @@
 
                     </h3>
 
+                    <p class="program-desc">
+
+                        {{ \Illuminate\Support\Str::limit($program->deskripsi, 100) }}
+
+                    </p>
+
                     <div class="progress-info">
 
                         <span>
 
-                            Rp {{ number_format($program->terkumpul) }}
+                            Terkumpul: Rp {{ number_format($program->terkumpul,0,',','.') }}
 
                         </span>
 
@@ -286,19 +225,16 @@
 
                     </div>
 
-                    <small>
+                    <div class="target-row">
 
-                        Target:
-                        Rp {{ number_format($program->target) }}
+                        Target: Rp {{ number_format($program->target,0,',','.') }}
 
-                    </small>
+                    </div>
 
-                    <a
-                        href="{{ route('program-donasi.show', $program->id) }}"
-                        class="detail-btn"
-                    >
+                    <a href="{{ route('donasi.create', $program->id) }}"
+                    class="detail-btn">
 
-                        Lihat Detail →
+                        Donasi
 
                     </a>
 
@@ -308,9 +244,195 @@
 
         @empty
 
-            <p>Program donasi belum tersedia.</p>
+            <p style="margin:20px;">Program donasi belum tersedia.</p>
 
         @endforelse
+
+    </div>
+
+</section>
+
+<!-- DASHBOARD PUBLIK -->
+<section class="dashboard-section">
+
+    <div class="dashboard-text">
+
+        <span class="section-label">Dashboard Publik</span>
+
+        <h2>
+            Dampak Terukur dalam Angka
+        </h2>
+
+        <p>
+
+            Kami menyajikan data real-time aliran dana. Setiap rupiah yang
+            Anda sumbangkan dapat dilacak peruntukannya. Tidak ada biaya
+            tersembunyi, hanya transparansi mutlak untuk membangun
+            kepercayaan jangka panjang.
+
+        </p>
+
+        <div class="dashboard-stats">
+
+            <div class="dashboard-stat">
+
+                <strong>Rp {{ number_format($totalDonasi,0,',','.') }}</strong>
+
+                <span>Total Dana Tersalurkan</span>
+
+            </div>
+
+            <div class="dashboard-stat">
+
+                <strong>{{ $totalProgram }}</strong>
+
+                <span>Total Program</span>
+
+            </div>
+
+            <div class="dashboard-stat">
+
+                <strong>{{ $programAktif }}</strong>
+
+                <span>Program Aktif</span>
+
+            </div>
+
+            <div class="dashboard-stat">
+
+                <strong>{{ $totalDonatur }}</strong>
+
+                <span>Donatur Aktif</span>
+
+            </div>
+
+        </div>
+
+        <a href="#" class="lihat-laporan">
+            Akses Laporan Keuangan Lengkap ↗
+        </a>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <div class="dashboard-card-header">
+
+            <h3>Distribusi Dana Bulan Ini</h3>
+
+            <span>📊</span>
+
+        </div>
+
+        @php
+            $distribusi = [
+                ['label' => 'Pendidikan & Beasiswa', 'persen' => 45],
+                ['label' => 'Kesehatan Masyarakat', 'persen' => 30],
+                ['label' => 'Pemberdayaan Ekonomi', 'persen' => 15],
+                ['label' => 'Operasional', 'persen' => 10],
+            ];
+        @endphp
+
+        @foreach($distribusi as $d)
+
+            <div class="distribusi-item">
+
+                <div class="distribusi-label">
+
+                    <span>{{ $d['label'] }}</span>
+                    <span>{{ $d['persen'] }}%</span>
+
+                </div>
+
+                <div class="distribusi-bar">
+
+                    <div
+                        class="distribusi-fill"
+                        style="width: {{ $d['persen'] }}%;"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        @endforeach
+
+    </div>
+
+</section>
+
+<!-- KONTAK -->
+<section id="kontak" class="contact-section">
+
+    <div class="contact-card">
+
+        <h2>Punya Pertanyaan?</h2>
+
+        <p>
+            Tim support kami siap membantu Anda memahami
+            lebih lanjut tentang pelaporan dan program donasi.
+        </p>
+
+        @if(session('success'))
+
+            <div class="success-message">
+                {{ session('success') }}
+            </div>
+
+        @endif
+
+        <form action="{{ route('kontak.kirim') }}"
+              method="POST">
+
+            @csrf
+
+            <div class="contact-row">
+
+                <div class="contact-group">
+
+                    <label>Nama Lengkap</label>
+
+                    <input type="text"
+                           name="nama"
+                           placeholder="Masukkan nama"
+                           required>
+
+                </div>
+
+                <div class="contact-group">
+
+                    <label>Email</label>
+
+                    <input type="email"
+                           name="email"
+                           placeholder="nama@gmail.com"
+                           required>
+
+                </div>
+
+            </div>
+
+            <div class="contact-group">
+
+                <label>Pesan</label>
+
+                <textarea
+                    name="pesan"
+                    rows="5"
+                    placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."
+                    required
+                ></textarea>
+
+            </div>
+
+            <button type="submit"
+                    class="contact-btn">
+
+                Kirim Pesan
+
+            </button>
+
+        </form>
 
     </div>
 
@@ -327,241 +449,402 @@
         console.log("Script dashboard aktif");
 
     });
-
-</script>
-
-@endpush
-
-@push('scripts')
-<script>
-async function ambilCuaca() {
-
-    const loading = document.getElementById('cuaca-loading');
-    const dataBox = document.getElementById('cuaca-data');
-
-    try {
-        const response = await fetch('https://wttr.in/Surabaya?format=j1');
-        const data = await response.json();
-
-        const suhu = data.current_condition[0].temp_C;
-        const deskripsi = data.current_condition[0].weatherDesc[0].value;
-
-        document.getElementById('suhu').innerText = suhu;
-        document.getElementById('deskripsi').innerText = deskripsi;
-
-        loading.style.display = 'none';
-        dataBox.style.display = 'block';
-
-    } catch (error) {
-        loading.innerText = "Gagal ambil data cuaca";
-        console.error(error);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", ambilCuaca);
 </script>
 @endpush
-
-<section class="testimonial-section">
-
-    <h2>
-        Apa Kata Donatur?
-    </h2>
-
-    <div class="testimonial-grid">
-
-        <div class="testimonial-card">
-
-            <p>
-                "PeduliKita membuat proses donasi menjadi mudah dan transparan."
-            </p>
-
-            <strong>
-                – Kavin
-            </strong>
-
-        </div>
-
-        <div class="testimonial-card">
-
-            <p>
-                "Saya bisa membantu sesama hanya dalam beberapa klik."
-            </p>
-
-            <strong>
-                – Abi
-            </strong>
-
-        </div>
-
-        <div class="testimonial-card">
-
-            <p>
-                "Program-programnya sangat jelas dan terpercaya."
-            </p>
-
-            <strong>
-                – Donatur
-            </strong>
-
-        </div>
-
-    </div>
-
-</section>
 
 <style>
 
 .hero-modern{
-    display:flex;
-    justify-content:space-between;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
     align-items:center;
-    gap:40px;
-    padding:80px 10%;
-    min-height:70vh;
+
+    gap:60px;
+
+    padding:70px 10%;
+
 }
 
-.hero-text{
-    flex:1;
-}
+.hero-kicker{
 
-.badge{
-    display:inline-block;
-    background:#ffe4e6;
-    color:#be163d;
-    padding:8px 16px;
-    border-radius:50px;
+    font-size:22px;
+
     font-weight:600;
+
+    line-height:1.4;
+
+    color:#1e293b;
+
     margin-bottom:20px;
+
 }
 
-.hero-text h1{
-    font-size:52px;
-    line-height:1.2;
-    margin-bottom:20px;
-}
+.hero-desc{
 
-.hero-text h1 span{
-    color:#be163d;
-}
+    color:#64748b;
 
-.hero-text p{
-    color:#666;
+    font-size:16px;
+
     line-height:1.8;
-    margin-bottom:30px;
+
+    max-width:520px;
+
+    margin-bottom:35px;
+
 }
 
 .hero-actions{
-    display:flex;
-    gap:15px;
+
+    margin-bottom:0;
+
 }
 
-.btn-primary{
+.btn-donasi{
+
+    display:inline-block;
+
     background:#be163d;
+
     color:white;
-    padding:14px 28px;
-    border-radius:12px;
+
+    padding:16px 28px;
+
+    border-radius:14px;
+
     text-decoration:none;
+
     font-weight:600;
+
+    transition:.3s;
+
 }
 
-.btn-secondary{
-    border:2px solid #be163d;
-    color:#be163d;
-    padding:14px 28px;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:600;
+.btn-donasi:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(190,22,61,.2);
+
 }
 
 .hero-image{
-    flex:1;
-    text-align:center;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.hero-image-wrapper{
+
+    width:100%;
+
+    max-width:480px;
+
+    background:linear-gradient(160deg,#7a1230 0%,#3d0a18 100%);
+
+    padding:24px;
+
+    border-radius:36px;
+
+    box-shadow:0 25px 50px rgba(122,18,48,.25);
+
 }
 
 .hero-image img{
-    max-width:420px;
+
     width:100%;
+
+    border-radius:24px;
+
+    display:block;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+@media(max-width:992px){
+
+    .hero-modern{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .hero-desc{
+
+        margin-left:auto;
+        margin-right:auto;
+
+    }
+
+    .hero-actions{
+
+        justify-content:center;
+
+        display:flex;
+
+    }
+
+}
+
+/* SECTION LABEL */
+
+.section-label{
+
+    display:inline-block;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#be163d;
+
+    margin-bottom:14px;
+
+}
+
+/* TENTANG */
+
+.tentang-section{
+    padding:80px 10%;
+    text-align:center;
+}
+
+.tentang-content{
+    max-width:800px;
+    margin:0 auto 60px;
+}
+
+.tentang-content h2{
+    font-size:36px;
+    margin-bottom:20px;
+    color:#1e293b;
+}
+
+.tentang-content p{
+    color:#64748b;
+    line-height:1.9;
+    font-size:16px;
+}
+
+.tentang-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:25px;
+
+    max-width:1100px;
+
+    margin:0 auto;
+
+}
+
+.tentang-card{
+
+    background:#f8fafc;
+
+    border-radius:24px;
+
+    padding:40px 30px;
+
+    transition:.3s;
+
+}
+
+.tentang-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.06);
+
+}
+
+.tentang-icon{
+
+    width:64px;
+    height:64px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0 auto 20px;
+
+    background:#fff1f3;
+
+    border-radius:50%;
+
+    font-size:28px;
+
+}
+
+.tentang-card h3{
+
+    color:#1e293b;
+    margin-bottom:12px;
+    font-size:19px;
+
+}
+
+.tentang-card p{
+
+    color:#64748b;
+    font-size:14px;
+    line-height:1.7;
+
+}
+
+/* PROGRAM */
+
+.program-section{
+    padding:80px 10%;
+}
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin-bottom:50px;
+
+}
+
+.lihat-semua{
+
+    color:#be163d;
+
+    text-decoration:none;
+
+    font-weight:700;
+
 }
 
 @media(max-width:768px){
 
-    .hero-modern{
+    .section-header{
+
         flex-direction:column;
-        text-align:center;
+
+        align-items:flex-start;
+
+        gap:20px;
+
     }
 
-    .hero-actions{
-        justify-content:center;
-        flex-wrap:wrap;
-    }
-
-    .hero-text h1{
-        font-size:36px;
-    }
-
-}
-
-.program-section{
-    padding:80px 10%;
-    background:#fafafa;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.section-title h2{
-    font-size:40px;
-    margin-bottom:10px;
-}
-
-.section-title p{
-    color:#777;
 }
 
 .program-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px,1fr));
+
     gap:30px;
+
 }
 
 .program-card{
     background:white;
-    border-radius:25px;
+
+    border-radius:28px;
+
     overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    transition:all .3s ease;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.06);
+
+    transition:.3s;
 }
 
 .program-card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 25px 40px rgba(0,0,0,.1);
+}
+
+.program-image-wrap{
+
+    position:relative;
+
 }
 
 .program-image{
     width:100%;
+
     height:220px;
+
     object-fit:cover;
+
+    display:block;
+
+    transition:.4s;
+}
+
+.program-card:hover .program-image{
+
+    transform:scale(1.05);
+
+}
+
+.kategori-badge{
+
+    position:absolute;
+
+    top:16px;
+    right:16px;
+
+    background:rgba(255,255,255,.95);
+
+    color:#be163d;
+
+    padding:6px 14px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.12);
+
 }
 
 .program-content{
     padding:25px;
 }
 
-.kategori{
-    display:inline-block;
-    background:#ffe4e6;
-    color:#be163d;
-    padding:6px 15px;
-    border-radius:50px;
-    font-size:14px;
-    font-weight:600;
-    margin-bottom:15px;
+.program-content h3{
+    margin-bottom:10px;
+    color:#1e293b;
+    font-size:19px;
 }
 
-.program-content h3{
-    margin-bottom:20px;
+.program-desc{
+
+    color:#64748b;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    margin-bottom:18px;
+
 }
 
 .progress-info{
@@ -569,14 +852,22 @@ document.addEventListener("DOMContentLoaded", ambilCuaca);
     justify-content:space-between;
     font-weight:600;
     margin-bottom:10px;
+    font-size:14px;
+    color:#1e293b;
+}
+
+.progress-info span:last-child{
+
+    color:#be163d;
+
 }
 
 .progress-bar{
-    height:10px;
+    height:8px;
     background:#eee;
     border-radius:50px;
     overflow:hidden;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
 
 .progress-fill{
@@ -585,81 +876,509 @@ document.addEventListener("DOMContentLoaded", ambilCuaca);
     border-radius:50px;
 }
 
+.target-row{
+
+    text-align:right;
+
+    color:#94a3b8;
+
+    font-size:13px;
+
+    margin-bottom:20px;
+
+}
+
 .detail-btn{
-    display:inline-block;
-    margin-top:20px;
-    color:#be163d;
-    text-decoration:none;
-    font-weight:600;
-}
 
-.info-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    gap:25px;
-    padding:40px 10%;
-}
+    display:block;
 
-.info-card{
+    width:100%;
+
+    text-align:center;
+
     background:white;
-    border-radius:24px;
-    padding:30px;
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
 
-.info-icon{
-    font-size:40px;
-}
+    color:#be163d;
 
-.reset-btn{
-    margin-top:15px;
-    background:#be163d;
-    color:white;
-    border:none;
-    padding:10px 18px;
-    border-radius:12px;
+    border:2px solid #be163d;
+
+    padding:13px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
     cursor:pointer;
+
+    transition:.3s;
+
 }
 
-.stats-modern{
+.detail-btn:hover{
+
+    background:#fff1f3;
+
+}
+
+/* DASHBOARD PUBLIK */
+
+.dashboard-section{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    padding:40px 10%;
-}
 
-.stats-modern > *{
-    border-radius:24px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
+    grid-template-columns:1.2fr 1fr;
 
-.testimonial-section{
+    gap:50px;
+
     padding:80px 10%;
+
+    align-items:start;
+
+}
+
+.dashboard-text h2{
+
+    font-size:36px;
+
+    color:#1e293b;
+
+    margin-bottom:18px;
+
+}
+
+.dashboard-text > p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+    max-width:520px;
+
+}
+
+.dashboard-stats{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px 35px;
+
+    margin-bottom:30px;
+
+}
+
+.dashboard-stat{
+
+    border-left:3px solid #be163d;
+
+    padding-left:16px;
+
+}
+
+.dashboard-stat strong{
+
+    display:block;
+
+    font-size:26px;
+
+    color:#1e293b;
+
+    margin-bottom:4px;
+
+}
+
+.dashboard-stat span{
+
+    color:#64748b;
+
+    font-size:14px;
+
+}
+
+.lihat-laporan{
+
+    color:#be163d;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+}
+
+.dashboard-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.07);
+
+}
+
+.dashboard-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.dashboard-card-header h3{
+
+    font-size:17px;
+
+    color:#1e293b;
+
+}
+
+.distribusi-item{
+
+    margin-bottom:22px;
+
+}
+
+.distribusi-item:last-child{
+
+    margin-bottom:0;
+
+}
+
+.distribusi-label{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:14px;
+
+    color:#1e293b;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+.distribusi-bar{
+
+    height:8px;
+
+    background:#f1f1f4;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+}
+
+.distribusi-fill{
+
+    height:100%;
+
+    background:#be163d;
+
+    border-radius:50px;
+
+}
+
+@media(max-width:900px){
+
+    .dashboard-section{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* KONTAK */
+
+.contact-section{
+    padding:100px 10%;
+
+    display:flex;
+    justify-content:center;
+}
+
+.contact-card{
+    width:100%;
+    max-width:800px;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:60px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.06);
+
     text-align:center;
 }
 
-.testimonial-grid{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+.contact-card h2{
+    font-size:36px;
+    color:#1f2937;
+
+    margin-bottom:15px;
 }
 
-.testimonial-card{
-    background:white;
-    padding:30px;
-    border-radius:24px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
+.contact-card p{
+    color:#6b7280;
 
-.testimonial-card p{
-    color:#666;
+    margin-bottom:40px;
+
     line-height:1.8;
+}
+
+.contact-row{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
     margin-bottom:20px;
+}
+
+.contact-group{
+    text-align:left;
+
+    margin-bottom:20px;
+}
+
+.contact-group label{
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+    color:#374151;
+}
+
+.contact-group input,
+.contact-group textarea{
+    width:100%;
+
+    padding:15px 18px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.contact-group input:focus,
+.contact-group textarea:focus{
+    border-color:#be163d;
+
+    box-shadow:
+        0 0 0 3px rgba(190,22,61,.15);
+}
+
+.contact-btn{
+    width:100%;
+
+    background:#be163d;
+
+    color:white;
+
+    border:none;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.contact-btn:hover{
+    background:#9c0c2e;
+}
+
+.success-message{
+    background:#fde8ec;
+
+    color:#be163d;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:25px;
+}
+
+@media(max-width:768px){
+
+    .contact-card{
+        padding:40px 25px;
+    }
+
+    .contact-row{
+        grid-template-columns:1fr;
+    }
+
+    .contact-card h2{
+        font-size:28px;
+    }
+
+}
+
+/* MODAL DETAIL PROGRAM */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.6);
+
+    z-index:9999;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+.modal-content{
+
+    background:white;
+
+    width:100%;
+    max-width:700px;
+
+    border-radius:30px;
+
+    padding:35px;
+
+    position:relative;
+
+    animation:modalFade .3s ease;
+}
+
+@keyframes modalFade{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.close-modal{
+
+    position:absolute;
+
+    top:20px;
+    right:25px;
+
+    font-size:32px;
+
+    cursor:pointer;
+}
+
+.modal-image{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    margin-bottom:20px;
+}
+
+.modal-content h2{
+
+    margin:15px 0;
+}
+
+.modal-content p{
+
+    color:#64748b;
+
+    line-height:1.8;
+}
+
+.modal-info{
+
+    margin:25px 0;
+}
+
+.modal-btn{
+
+    display:block;
+
+    text-align:center;
+
+    background:#be163d;
+
+    color:white;
+
+    padding:16px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.modal-btn:hover{
+
+    background:#a11235;
+}
+
+@media(max-width:768px){
+
+    .modal-content{
+
+        padding:25px;
+    }
+
+    .modal-image{
+
+        height:200px;
+    }
 }
 
 </style>
