@@ -43,9 +43,9 @@ class RegisteredUserController extends Controller
             'role' => 'admin',
         ]);
 
-        event(new Registered($user));
+        event(new Registered($admin));
 
-        Auth::login($user);
+        Auth::login($admin);
 
         return redirect()->route('admin.dashboard');
     }
