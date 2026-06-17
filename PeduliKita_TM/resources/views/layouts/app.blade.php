@@ -30,11 +30,11 @@
 
     <title>PeduliKita</title>
 
-    @vite([
+    {{-- @vite([
         'resources/css/app.css',
         'resources/css/pedulikita.css',
         'resources/js/app.js'
-    ])
+    ]) --}}
 
 </head>
 
